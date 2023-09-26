@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--CSS Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <!-- Favicons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/icons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/icons/favicon-32x32.png"
+    />
+
+    <!-- Animate CSS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <title>Ingeniero Daniel Contreras</title>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <h1>Daniel Fernando Contreras Abella</h1>
+      <ul class="navigation">
+        <li><a href="#about" class="nav-link">Sobre mí</a></li>
+        <li><a href="#skills" class="nav-link">Habilidades</a></li>
+        <li><a href="#projects" class="nav-link">Proyectos</a></li>
+        <li><a href="#contact" class="nav-link">Contacto</a></li>
+      </ul>
+      <button class="burger-menu" id="burger-menu">
+        <ion-icon class="bars" name="menu-outline"></ion-icon>
+        <!-- <ion-icon class="times" name="close-outline"></ion-icon> -->
+      </button>
+    </nav>
+    <div class="divPrincipal">
+      <!-- Hero Section -->
+      <section class="hero" id="about">
+        <img
+          src="assets/images/yo.svg"
+          alt="jane-doe"
+          loading="lazy"
+          class="hero-img"
+        />
+        <div class="bio animate__animated animate__shakeX">
+          <h2 class="bio-title">¡Hola...!</h2>
+          <p class="bio-text">
+            Soy Daniel Fernando Contreras y tengo 27 años, ingeniero de sistemas 
+            de la Universidad de Cundinamarca. Dedicado al aprendizaje del desarrollo 
+            de software por lo menos unos 4 años, los cuales me ha permitido adquirir 
+            experiencia sobre este bello campo. Permitiendo crear he implementado 
+            soluciones a los problemas cotidianos de una empresa o de una persona, 
+            generando eficiencia y eficacia a los procesos manuales de la empresa o 
+            organización.
+          </p>
+        </div>
+      </section>
+
+      <!-- More about -->
+      <section class="more-about">
+        <h2>Más sobre mí</h2>
+        <p>
+          Soy desarrollador Full Stack con 2 años de experiencia laborales, los cuales 
+          he adquirido un mayor discernimiento en herramientas de desarrollo de software, 
+          también un gran amplio conocimiento del manejo de bases de datos SQL por los 
+          cuales me permiten ser un conocedor en el desarrollo de sitios web que integra 
+          el diseño de la experiencia del cliente en una página <b>(front end)</b>, así como la 
+          programación y mantenimiento de la arquitectura interna del sitio <b>(back end)</b>.
+        </p>
+        <p>
+          Así mismo soy una persona responsable en el ámbito laborar comprometiéndome 
+          con la misión y visión de la organización. Igualmente poder aportar con mi 
+          conocimiento y experticia a mis compañeros de trabajo asimismo también poder 
+          adquirir nuevos conocimientos y vivir nuevas experiencias con el equipo de trabajo.
+        </p>
+        <p>
+          En conclusión con mi experiencia, conocimiento y habilidades blandas como 
+          trabajo en equipo, comunicación asertiva, capacidad analítica y de resolución 
+          de problemas, deseos de aprender y estar a la vanguardia me permite adaptarme 
+          y crecer en espacios con alto nivel de exigencia.
+        </p>
+      </section>
+
+      <!-- Skills section -->
+      <section class="skills" id="skills">
+        <h2 class="skill-header">Mis mejores habilidades</h2>
+
+        <div class="skills-wrapper">
+          <div class="first-set animate__animated animate__pulse">
+            <img
+              src="assets/icons/icons8-html-5.svg"
+              alt=""
+              loading="lazy"
+              class="icon icon-card"
+            />
+            <img
+              src="assets/icons/icons8-css3.svg"
+              alt=""
+              loading="lazy"
+              class="icon icon-card"
+            />
+            <img
+              src="assets/icons/icons8-bootstrap.svg"
+              alt=""
+              loading="lazy"
+              class="icon icon-card"
+            />
+            <img
+              src="assets/icons/angular.svg"
+              alt=""
+              loading="lazy"
+              class="icon icon-card"
+            />
+          </div>
+
+          <div class="second-set animate__animated animate__pulse">
+            <img
+              src="assets/icons/icons8-javascript.svg"
+              alt=""
+              loading="lazy"
+              class="icon icon-card"
+            />
+            <img
+              src="assets/icons/java.svg"
+              alt=""
+              loading="lazy"
+              class="icon icon-card"
+            />
+            <img
+              src="assets/icons/spring.svg"
+              alt=""
+              loading="lazy"
+              class="icon icon-card"
+            />
+            <img
+              src="assets/icons/icons8-git.svg"
+              alt=""
+              loading="lazy"
+              class="icon icon-card"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects section -->
+      <section class="projects" id="projects">
+        <h2 class="projects-title">Algunos de mis Proyectos</h2>
+        <div class="projects-container">
+          <div class="project-container project-card">
+            <img
+              src="assets/images/expenseTracker.png"
+              alt="expense-tracker"
+              loading="lazy"
+              class="project-pic"
+            />
+            <h3 class="project-title">Sistema de información Farmaser</h3>
+            <p class="project-details">
+              Diseño e implementación un sistema de información para la farmacia 
+              <b>Farmaser</b> en Fusagasugá Cundinamarca. Ya que no contaba con 
+              una herramienta para la gestión y administración de los implementos 
+              farmacéuticos.
+            </p>
+            <button name="favorito" class="project-button" type="button" onclick="modal(1)"> Mas Informacion </button>
+          </div>
+          <div class="project-container project-card">
+            <img
+              src="assets/images/netflixClone.png"
+              alt="netflic-clone"
+              loading="lazy"
+              class="project-pic"
+            />
+            <h3 class="project-title">Opción de grado</h3>
+            <p class="project-details">
+              Desarrollo un módulo de opción de grado en la plataforma institucional, 
+              según a un acuerdo interno de la <b>Universidad de Cundinamarca</b> con la finalidad 
+              de que los estudiantes definan la metodología en el cual va a finalizar 
+              pregrado o postgrado.
+            </p>
+            <button name="favorito" class="project-button" type="button" onclick="modal(2)"> Mas Informacion </button>
+          </div>
+          <div class="project-container project-card">
+            <img
+              src="assets/images/greenyEarth.png"
+              alt="greeny-earth"
+              loading="lazy"
+              class="project-pic"
+            />
+            <h3 class="project-title">Greeny Earth</h3>
+            <p class="project-details">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
+              ratione vel inventore labore commodi modi quos culpa aut saepe!
+              Alias!
+            </p>
+            <button name="favorito" class="project-button" type="button" onclick="modal(3)"> Mas Informacion </button>
+          </div>
+          <div class="project-container project-card">
+            <img
+              src="assets/images/greenyEarth.png"
+              alt="greeny-earth"
+              loading="lazy"
+              class="project-pic"
+            />
+            <h3 class="project-title">Muy Pronto nuevos proyectos...</h3>
+            <p class="project-details">
+              Muy Pronto cargare mas proyectos....
+            </p>
+            <button name="favorito" class="project-button" type="button" onclick="modal(4)"> Mas Informacion </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact section -->
+      <section class="contact" id="contact">
+        <h2>Get In Touch With Me</h2>
+        <div class="contact-form-container">
+          <div class="contact-form">
+            <form action="https://formspree.io/f/mbjepgjr" method="POST">
+              <div class="form-control">
+                <label for="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="sender-name"
+                  placeholder="Enter Your Name"
+                  class="input-field"
+                  required
+                />
+              </div>
+              <div class="form-control">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="sender-email"
+                  placeholder="Enter Your Email"
+                  class="input-field"
+                  required
+                />
+              </div>
+              <div class="form-control">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  cols="60"
+                  rows="10"
+                  placeholder="Enter Your Message"
+                  name="message"
+                  class="input-field"
+                  required
+                ></textarea>
+              </div>
+              <input
+                type="submit"
+                value="Submit"
+                id="submit-btn"
+                class="submit-btn"
+              />
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+    
+
+    <!-- Social accounts - Fixed to the right -->
+    <div class="socials">
+      <a href="#" target="_blank"
+        ><img
+          src="assets/icons/icons8-twitter-circled.gif"
+          alt="Twitter"
+          loading="lazy"
+          class="socicon"
+      /></a>
+      <a href="#" target="_blank"
+        ><img
+          src="assets/icons/icons8-instagram.gif"
+          alt="Instagram"
+          loading="lazy"
+          class="socicon"
+      /></a>
+      <a href="#" target="_blank"
+        ><img
+          src="assets/icons/icons8-linkedin-circled.gif"
+          alt="Linkedin"
+          loading="lazy"
+          class="socicon"
+      /></a>
+      <a href="#" target="_blank"
+        ><img src="assets/icons/icons8-github.gif" alt="Github" class="socicon"
+      /></a>
+    </div>
+    <!--- modal -->
+    <div class="modalOculto" id="modal1">
+      <div class="contenedor">
+        <label for="btn-modal" class="lbl-modal" id="cerrarModal">X</label>
+        <iframe class="experiencia" id="iframer" src=""></iframe>
+      </div>
+    </div>
+    <!-- Scroll to top -->
+    <i class="scroll-up" id="scroll-up"
+      ><img
+        src="assets/icons/icons8-upward-arrow.gif"
+        class="socicon up-arrow"
+        alt=""
+    /></i>
+
+    <!-- Footer section -->
+    <footer>
+      <p class="copy">&copy; Copyright 2021</p>
+      <p class="copy">
+        Built with &#x2661; by
+        <a href="https://twitter.com/koladechris" target="_blank"
+          >Kolade Chris (Ksound)</a
+        >
+      </p>
+    </footer>
+
+    <!-- Website scripts -->
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/function.js"></script>
+
+    <!-- Ion icons scripts -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

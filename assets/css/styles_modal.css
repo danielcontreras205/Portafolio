@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,900;1,700&display=swap");
+
+/* Variables */
+:root {
+  --font-family: "Roboto", sans-serf;
+  --normal-font: 400;
+  --bold-font: 700;
+  --bolder-font: 900;
+  --bg-color: #fcfcfc;
+  --bg-color-nav: #10303f;
+  --primary-color: #1900ff;
+  --primary-color-nav: #ffffff;
+  --secondary-color: #00aeff;
+  --primary-shadow: #8b8eaf;
+  --secondary-shadow: #a17a69;
+  --bottom-margin: 0.5rem;
+  --bottom-margin-2: 1rem;
+  --line-height: 1.7rem;
+  --transition: 0.3s;
+}
+/* Variables end */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* CSS Resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: 2px solid red; */
+}
+
+body {
+  font-family: var(--font-family);
+  justify-content: center;
+  align-items: center;
+}
+.project-pic {
+  width: 40%;
+}
+.projects-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+h3{
+  text-align: center;
+  margin: 1em;
+}
+
+.divPrincipal{
+  padding-right: 9%;
+  padding-left: 9%;
+  padding-top: 5%;
+  text-align: justify;
+}
+
+/*------------------------------------------------------------------- cartas -------------------------------------------------------------------*/
+/*-------------------------------------------------------------- Posicion y forma --------------------------------------------------------------*/
+section {
+  position: relative;
+  width: 100%;
+  min-height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.swiper-slide {
+  width: 450px;
+  height: 600px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+  filter: blur(1px);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: self-start;
+}
+.imagenCart{
+  width: 450px;
+  height: 300px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: self-start;
+}
+.textoCart{
+  width: 450px;
+  height: 300px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+  border-end-end-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: self-start;
+}
+/*------------------------------------------------------------- texto -----------------------------------------------------------------*/
+
+/*.swiper-pagination-bullet,
+.swiper-pagination-bullet-active {*/
+  .swiper-slide-active {
+    filter: blur(0px);
+  }
+  .swiper-slide span {
+    text-transform: uppercase;
+    color: #fff;
+    background: #1b7402;
+    padding: 7px 18px 7px 25px;
+    display: inline-block;
+    border-radius: 0 20px 20px 0px;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    font-family: "Open Sans", sans-serif;
+  }
+  .swiper-slide--one span {
+    background: #62667f;
+  }
+  .swiper-slide--two span {
+    background: #087ac4;
+  }
+  .swiper-slide--three span {
+    background: #b45205;
+  }
+  
+  .swiper-slide--four span {
+    background: #087ac4;
+  }
+  .swiper-slide h2 {
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    padding: 25px 45px 0 25px;
+  }
+  .swiper-slide p {
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    padding: 0 25px 35px 25px;
+  }
+  .swiper-slide svg {
+    color: #fff;
+    width: 22px;
+    height: 22px;
+    margin-right: 7px;
+  }
+  /*--------------------------------------------------------------- imagenes 1-------------------------------------------------------------*/
+  .swiper-slide--one .imagenCart{
+    background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+      url(https://images.unsplash.com/photo-1556206079-747a7a424d3d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80)
+        no-repeat 50% 50% / cover;
+  }
+  .swiper-slide--one .textoCart{
+    background: white;
+  }
+  /*--------------------------------------------------------------- imagenes 2-------------------------------------------------------------*/
+  .swiper-slide--two .imagenCart{
+    background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+      url("https://images.unsplash.com/photo-1571900670723-a317a66e3fb7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=423&q=80")
+        no-repeat 50% 50% / cover;
+  }
+  .swiper-slide--two .textoCart{
+    background: white;
+  }
+  /*--------------------------------------------------------------- imagenes 3-------------------------------------------------------------*/
+  .swiper-slide--three {
+    background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+      url("https://images.unsplash.com/photo-1549144511-f099e773c147?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80")
+        no-repeat 50% 50% / cover;
+  }
+  .swiper-slide--three  .textoCart{
+    background: white;
+  }
+  /*--------------------------------------------------------------- imagenes 4-------------------------------------------------------------*/
+  .swiper-slide--four {
+    background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+      url("https://images.unsplash.com/photo-1650367310179-e1b5b8e453c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80")
+        no-repeat 50% 50% / cover;
+  }
+  .swiper-slide--four .textoCart{
+    background: white;
+  }
+  /*--------------------------------------------------------------- imagenes 5-------------------------------------------------------------*/
+  .swiper-slide--five {
+    background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+      url("https://images.unsplash.com/photo-1596521864207-13d46b1a0c78?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80")
+        no-repeat 50% 50% / cover;
+  }
+  .swiper-slide--five .textoCart{
+    background: white;
+  }
+  /*--------------------------------------------------------------- imagenes laterales -------------------------------------------------------------*/
+  .swiper-3d .swiper-slide-shadow-left,
+  .swiper-3d .swiper-slide-shadow-right {
+    background-image: none;
+  }
+  
