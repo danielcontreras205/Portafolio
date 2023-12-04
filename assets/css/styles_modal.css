@@ -72,6 +72,7 @@ section {
   width: 100%;
   padding-top: 50px;
   padding-bottom: 50px;
+
 }
 .swiper-slide {
   width: 450px;
@@ -99,10 +100,6 @@ section {
   height: 300px;
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
   border-end-end-radius: 10px;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: end;
-  align-items: self-start; */
   padding: 8%;
 }
 /*------------------------------------------------------------- texto -----------------------------------------------------------------*/
@@ -209,4 +206,120 @@ section {
   .swiper-3d .swiper-slide-shadow-right {
     background-image: none;
   }
-  
+  /* ---------------------------------------------------------------------------- media -------------------------------------------------------------- */
+  @media screen and (max-width: 720px) {
+    /*------------------------------------------------------------------- cartas -------------------------------------------------------------------*/
+    /*-------------------------------------------------------------- Posicion y forma --------------------------------------------------------------*/
+    section {
+      position: relative;
+      width: 100%;
+      min-height: 10vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .swiper {
+      width: 100%;
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    .swiper-slide {
+      width: 225px;
+      height: 150px;
+      box-shadow: 0 7.5px 25px rgba(0, 0, 0, 0.2);
+      filter: blur(1px);
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      align-items: self-start;
+    }
+
+    .imagenCart {
+      width: 225px;
+      height: 150px;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      align-items: self-start;
+    }
+
+    .textoCart {
+      width: 225px;
+      height: 150px;
+      box-shadow: 0 7.5px 25px rgba(0, 0, 0, 0.2);
+      border-end-end-radius: 5px;
+      /* display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: self-start; */
+      padding: 8%;
+      font-size: 26%;
+    }
+
+    /*------------------------------------------------------------- texto -----------------------------------------------------------------*/
+
+    .swiper-slide-active {
+      filter: blur(0px);
+    }
+
+    .swiper-slide span {
+      text-transform: uppercase;
+      color: #fff;
+      background: #1b7402;
+      padding: 3.5px 9px 3.5px 12.5px;
+      display: inline-block;
+      border-radius: 0 10px 10px 0px;
+      letter-spacing: 1px;
+      font-size: 0.4rem;
+      font-family: "Open Sans", sans-serif;
+    }
+
+    .swiper-slide--one span {
+      background: #62667f;
+    }
+
+    .swiper-slide--two span {
+      background: #087ac4;
+    }
+
+    .swiper-slide--three span {
+      background: #b45205;
+    }
+
+    .swiper-slide--four span {
+      background: #b45205;
+    }
+
+    .swiper-slide h2 {
+      color: #fff;
+      font-family: "Roboto", sans-serif;
+      font-weight: 200;
+      font-size: 0.65rem;
+      line-height: 0.7;
+      margin-bottom: 7.5px;
+      padding: 12.5px 22.5px 0 22.5px;
+    }
+
+    .swiper-slide p {
+      color: #fff;
+      font-family: "Roboto", sans-serif;
+      font-weight: 150;
+      display: flex;
+      align-items: center;
+      padding: 0 12.5px 17.5px 12.5px;
+      font-size: 0.8rem;
+    }
+
+    .swiper-slide svg {
+      color: #fff;
+      width: 11px;
+      height: 11px;
+      margin-right: 6.5px;
+    }
+  }
