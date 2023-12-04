@@ -228,7 +228,7 @@ section {
 
     .swiper-slide {
       width: 225px;
-      height: 150px;
+      height: 300px;
       box-shadow: 0 7.5px 25px rgba(0, 0, 0, 0.2);
       filter: blur(1px);
       border-radius: 5px;
@@ -278,6 +278,9 @@ section {
       letter-spacing: 1px;
       font-size: 0.4rem;
       font-family: "Open Sans", sans-serif;
+    }
+    .swiper-slide .imagenCart p{
+      font-size: 0.5rem;
     }
 
     .swiper-slide--one span {
