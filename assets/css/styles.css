@@ -259,8 +259,8 @@ body .modalOculto{
 
 }
 .contenedor .experiencia{
-  width: 49rem !important;
-  height: 32rem !important;
+  width: 100% !important;
+  height: 95% !important;
 }
 .lbl-modal{
   background: var(--bg-color-nav);
