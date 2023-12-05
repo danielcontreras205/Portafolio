@@ -133,6 +133,28 @@ section {
   .swiper-slide--four span {
     background: #b45205;
   }
+  .swiper-slide--five span {
+    background: #b45205;
+  }
+  .swiper-slide--six span {
+    background: #b45205;
+  }
+  .swiper-slide--sevent span {
+    background: #b45205;
+  }
+  .swiper-slide--egith span {
+    background: #b45205;
+  }
+  .swiper-slide--nine span {
+    background: #b45205;
+  }
+  .swiper-slide--teb span {
+    background: #b45205;
+  }
+  .swiper-slide--elevent span {
+    background: #b45205;
+  }
+  
   .swiper-slide h2 {
     color: #fff;
     font-family: "Roboto", sans-serif;
@@ -199,6 +221,60 @@ section {
       background-size: contain;
   }
   .swiper-slide--five .textoCart{
+    background: white;
+  }
+  /*--------------------------------------------------------------- imagenes 6-------------------------------------------------------------*/
+  .swiper-slide--six .imagenCart{
+    background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+      url("../images/modal_farmaser/Captura6.PNG") no-repeat 50% 50% ;
+      background-size: contain;
+  }
+  .swiper-slide--six .textoCart{
+    background: white;
+  }
+  /*--------------------------------------------------------------- imagenes 7-------------------------------------------------------------*/
+  .swiper-slide--sevent .imagenCart{
+    background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+      url("../images/modal_farmaser/Captura7.PNG") no-repeat 50% 50% ;
+      background-size: contain;
+  }
+  .swiper-slide--sevent .textoCart{
+    background: white;
+  }
+  /*--------------------------------------------------------------- imagenes 8-------------------------------------------------------------*/
+  .swiper-slide--egiht .imagenCart{
+    background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+      url("../images/modal_farmaser/Captura8.PNG") no-repeat 50% 50% ;
+      background-size: contain;
+  }
+  .swiper-slide--egiht .textoCart{
+    background: white;
+  }
+  /*--------------------------------------------------------------- imagenes 9-------------------------------------------------------------*/
+  .swiper-slide--nine .imagenCart{
+    background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+      url("../images/modal_farmaser/Captura9.PNG") no-repeat 50% 50% ;
+      background-size: contain;
+  }
+  .swiper-slide--nine .textoCart{
+    background: white;
+  }
+  /*--------------------------------------------------------------- imagenes 10-------------------------------------------------------------*/
+  .swiper-slide--ten .imagenCart{
+    background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+      url("../images/modal_farmaser/Captura10.PNG") no-repeat 50% 50% ;
+      background-size: contain;
+  }
+  .swiper-slide--ten .textoCart{
+    background: white;
+  }
+  /*--------------------------------------------------------------- imagenes 11-------------------------------------------------------------*/
+  .swiper-slide--elevent .imagenCart{
+    background: linear-gradient(to top, #0f2027, #203a4300, #2c536400),
+      url("../images/modal_farmaser/Captura11.PNG") no-repeat 50% 50% ;
+      background-size: contain;
+  }
+  .swiper-slide--elevent .textoCart{
     background: white;
   }
   /*--------------------------------------------------------------- imagenes laterales -------------------------------------------------------------*/
