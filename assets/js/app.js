@@ -62,10 +62,11 @@ function setCookie(nombre, valor, expiracionDias) {
     // Buscar la cookie específica por nombre
     for (let i = 0; i < cookies.length; i++) {
         const cookie = cookies[i].trim();
+        console.log(cookie);
         // Verificar si la cookie tiene el nombre que estamos buscando
         if (cookie.startsWith(nombre + '=')) {
-            // Obtener y devolver el valor de la cookie
-            valor = cookie.substring(nombre.length + 1) + 1;
+            // Obtener y devolver el valor de la cookie, la base es 10, que es decimal.
+            valor = parseInt(cookie.substring(nombre.length + 1), 10) + 1;
         }
     }
     updateCoockie(nombre,valor,expiracionDias);
