@@ -46,24 +46,23 @@ function cerrarModal(modal) {
 // Ruta al archivo en tu repositorio
 const filePath = "https://danielcontreras205.github.io/assets/titels/db.txt";
 
-  // Nueva información que deseas escribir en el archivo
-  const nuevaInformacion = 'Esto es un nuevo contenido.';
+// Nueva información que deseas escribir en el archivo
+const nuevaInformacion = "Esto es un nuevo contenido.";
 
-  // Realiza una solicitud PUT al servidor
-  fetch(filePath, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'text/plain',
-    },
-    body: nuevaInformacion,
-  })
-  .then(response => {
+// Realiza una solicitud PUT al servidor
+fetch(filePath, {
+  method: "PUT",
+  headers: {
+    "Content-Type": "text/plain",
+  },
+  body: nuevaInformacion,
+})
+  .then((response) => {
     if (!response.ok) {
-      throw new Error('Error en la solicitud.');
+      throw new Error("Error en la solicitud.");
     }
-    console.log('Archivo editado correctamente.');
+    console.log("Archivo editado correctamente.");
   })
-  .catch(error => {
-    console.error('Error:', error.message);
+  .catch((error) => {
+    console.error("Error:", error.message);
   });
-
