@@ -66,6 +66,7 @@ fetch(repoUrl, { headers })
   .then(response => response.json())
   .then(data => {
     // Actualizar el contenido del archivo
+    console.log(data.content);
     const updatedContent = (atob(data.content) + '\n' + newData).trim();
     
     // Crear un objeto de datos para la solicitud de actualización
