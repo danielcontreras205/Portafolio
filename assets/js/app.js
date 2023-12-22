@@ -97,7 +97,7 @@ function updateCoockie(nombre, valor, expiracionDias) {
   fechaExpiracion.setDate(fechaExpiracion.getDate() + expiracionDias);
   var cookie = nombre + "=" + valor + ";expires=" + fechaExpiracion.toUTCString() + ";path=/";
   document.cookie = cookie;
-  document.getElementById("countCookies").textContent = count;
+  document.getElementById("countCookies").textContent = valor;
 }
 
 
