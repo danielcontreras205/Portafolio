@@ -53,20 +53,34 @@ if (window.localStorage) {
 if (navigator.cookieEnabled === false) {
   alert("Por favor, habilita las cookies en tu navegador para usar todas las funciones del sitio.");
 } else {
-  setCookie("miCookie", "miValor", 365); // La cookie expirará en un año
+  setCookie("miCookie", 1, 7); // La cookie expirará en un año
 }
 
 function setCookie(nombre, valor, expiracionDias) {
-  var fechaExpiracion = new Date();
-  fechaExpiracion.setDate(fechaExpiracion.getDate() + expiracionDias);
-  var cookie = nombre + "=" + valor + ";expires=" + fechaExpiracion.toUTCString() + ";path=/";
-  document.cookie = cookie;
-  // Verificar si la cookie se ha creado
   if (cookieExiste(nombre)) {
-    console.log('La cookie se creó correctamente.');
+    console.log('existe la cookie');
+    const cookies = document.cookie.split(';');
+    // Buscar la cookie específica por nombre
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        // Verificar si la cookie tiene el nombre que estamos buscando
+        if (cookie.startsWith(nombre + '=')) {
+            // Obtener y devolver el valor de la cookie
+            console.log(cookie.substring(nombre.length + 1));
+        }
+    }
   } else {
-    console.log('Hubo un problema al crear la cookie.');
+    console.log('No Existe la cookie');
+    var fechaExpiracion = new Date();
+    fechaExpiracion.setDate(fechaExpiracion.getDate() + expiracionDias);
+    var cookie = nombre + "=" + valor + ";expires=" + fechaExpiracion.toUTCString() + ";path=/";
+    document.cookie = cookie;
   }
+
+
+  
+  // Verificar si la cookie se ha creado
+  
 
 }
 // Función para verificar si una cookie existe
