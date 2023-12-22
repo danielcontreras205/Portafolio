@@ -65,7 +65,7 @@ function setCookie(nombre, valor, expiracionDias) {
         // Verificar si la cookie tiene el nombre que estamos buscando
         if (cookie.startsWith(nombre + '=')) {
             // Obtener y devolver el valor de la cookie
-            valor = ++cookie.substring(nombre.length + 1) ;
+            valor = cookie.substring(nombre.length + 1) + 1;
         }
     }
     updateCoockie(nombre,valor,expiracionDias);
