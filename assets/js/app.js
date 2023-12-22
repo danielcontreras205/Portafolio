@@ -55,7 +55,6 @@ if (navigator.cookieEnabled === false) {
 } else {
   setCookie("miCookie", 1, 7); // La cookie expirará en un año
 }
-
 function setCookie(nombre, valor, expiracionDias) {
   if (cookieExiste(nombre)) {
     console.log('existe la cookie');
@@ -66,9 +65,10 @@ function setCookie(nombre, valor, expiracionDias) {
         // Verificar si la cookie tiene el nombre que estamos buscando
         if (cookie.startsWith(nombre + '=')) {
             // Obtener y devolver el valor de la cookie
-            console.log(cookie.substring(nombre.length + 1));
+            valor = ++cookie.substring(nombre.length + 1) ;
         }
     }
+    updateCoockie(nombre,valor,expiracionDias);
   } else {
     console.log('No Existe la cookie');
     var fechaExpiracion = new Date();
@@ -76,12 +76,6 @@ function setCookie(nombre, valor, expiracionDias) {
     var cookie = nombre + "=" + valor + ";expires=" + fechaExpiracion.toUTCString() + ";path=/";
     document.cookie = cookie;
   }
-
-
-  
-  // Verificar si la cookie se ha creado
-  
-
 }
 // Función para verificar si una cookie existe
 function cookieExiste(nombreCookie) {
@@ -94,6 +88,14 @@ function cookieExiste(nombreCookie) {
     }
   }
   return false;
+}
+// actualiza coockie
+function setCookie(nombre, valor, expiracionDias) {
+  console.log('se actualiza coockie');
+  var fechaExpiracion = new Date();
+  fechaExpiracion.setDate(fechaExpiracion.getDate() + expiracionDias);
+  var cookie = nombre + "=" + valor + ";expires=" + fechaExpiracion.toUTCString() + ";path=/";
+  document.cookie = cookie;
 }
 
 
