@@ -50,7 +50,7 @@ const filePath = "db.txt";
 const newData = 'Nuevo contenido del archivo.';
 
 // Token de acceso personal de GitHub (necesitas crear uno en tu cuenta)
-const githubToken = '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';
+const githubToken = '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';
 
 // URL del repositorio en GitHub
 const repoUrl = 'https://danielcontreras205.github.io/assets/titels/' + filePath;
