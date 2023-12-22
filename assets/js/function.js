@@ -43,4 +43,47 @@ function cerrarModal(modal) {
   });
 }
 //----------------------------------- crear Documento txt -----------------------------------
+// Ruta al archivo en tu repositorio
+const filePath = "db.txt";
+
+// Nuevos datos que deseas agregar al archivo
+const newData = 'Nuevo contenido del archivo.';
+
+// Token de acceso personal de GitHub (necesitas crear uno en tu cuenta)
+const githubToken = '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';
+
+// URL del repositorio en GitHub
+const repoUrl = 'https://danielcontreras205.github.io/assets/titels/' + filePath;
+
+// Encabezados de la solicitud con el token de acceso
+const headers = new Headers({
+  'Authorization': 'Bearer ' + githubToken,
+  'Content-Type': 'application/json',
+});
+
+// Obtener el contenido actual del archivo
+fetch(repoUrl, { headers })
+  .then(response => response.json())
+  .then(data => {
+    // Actualizar el contenido del archivo
+    const updatedContent = (atob(data.content) + '\n' + newData).trim();
+    
+    // Crear un objeto de datos para la solicitud de actualización
+    const updateData = {
+      message: 'Actualización automática del archivo desde JavaScript',
+      content: btoa(updatedContent),
+      sha: data.sha,
+    };
+
+    // Realizar la solicitud PUT para actualizar el contenido
+    fetch(repoUrl, {
+      method: 'PUT',
+      headers,
+      body: JSON.stringify(updateData),
+    })
+    .then(response => response.json())
+    .then(result => console.log(result))
+    .catch(error => console.error(error));
+  })
+  .catch(error => console.error(error));
 
