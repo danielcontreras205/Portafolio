@@ -30,7 +30,7 @@ scrollUp.addEventListener("click", () => {
   });
 });
 
-//----------------------------- contador de pagina ----------------------------------------
+//----------------------------- contador de pagina localStorage ----------------------------------------
 if (window.localStorage) {
   // localStorage está habilitado
   console.log("localStorage está habilitado.");
@@ -49,7 +49,7 @@ if (window.localStorage) {
   // localStorage no está habilitado
   console.log("localStorage no está habilitado. No podrás utilizarlo.");
 }
-
+//----------------------------- contador de pagina cookie----------------------------------------
 if (navigator.cookieEnabled === false) {
   alert("Por favor, habilita las cookies en tu navegador para usar todas las funciones del sitio.");
 } else {
@@ -97,6 +97,7 @@ function updateCoockie(nombre, valor, expiracionDias) {
   fechaExpiracion.setDate(fechaExpiracion.getDate() + expiracionDias);
   var cookie = nombre + "=" + valor + ";expires=" + fechaExpiracion.toUTCString() + ";path=/";
   document.cookie = cookie;
+  document.getElementById("countCookies").textContent = count;
 }
 
 
