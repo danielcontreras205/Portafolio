@@ -50,7 +50,7 @@ const filePath = "db.txt";
 const newData = 'Nuevo contenido del archivo.';
 
 // Token de acceso personal de GitHub (necesitas crear uno en tu cuenta)
-const githubToken = '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';
+const githubToken = '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';
 
 // URL del repositorio en GitHub
 const repoUrl = 'https://danielcontreras205.github.io/assets/titels/' + filePath;
@@ -66,6 +66,7 @@ fetch(repoUrl, { headers })
   .then(response => response.json())
   .then(data => {
     // Actualizar el contenido del archivo
+    // Entonces, btoa y atob trabajan juntas para codificar datos binarios
     console.log(data.content);
     const updatedContent = (data.content + '\n' + newData).trim();
     
