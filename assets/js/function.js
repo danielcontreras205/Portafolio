@@ -67,12 +67,12 @@ fetch(repoUrl, { headers })
   .then(data => {
     // Actualizar el contenido del archivo
     console.log(data.content);
-    const updatedContent = (atob(data.content) + '\n' + newData).trim();
+    const updatedContent = (data.content + '\n' + newData).trim();
     
     // Crear un objeto de datos para la solicitud de actualización
     const updateData = {
       message: 'Actualización automática del archivo desde JavaScript',
-      content: btoa(updatedContent),
+      content: updatedContent,
       sha: data.sha,
     };
 
