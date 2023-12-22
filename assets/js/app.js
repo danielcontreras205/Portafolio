@@ -29,3 +29,57 @@ scrollUp.addEventListener("click", () => {
     behavior: "smooth",
   });
 });
+
+//----------------------------- contador de pagina ----------------------------------------
+if (window.localStorage) {
+  // localStorage está habilitado
+  console.log("localStorage está habilitado.");
+  // Verificamos si ya existe un contador en el almacenamiento local
+  if (localStorage.getItem("visitCount")) {
+    // Si existe, incrementamos el contador
+    let count = parseInt(localStorage.getItem("visitCount")) + 1;
+    localStorage.setItem("visitCount", count);
+    document.getElementById("count").textContent = count;
+  } else {
+    // Si no existe, inicializamos el contador a 1
+    localStorage.setItem("visitCount", 1);
+    document.getElementById("count").textContent = 1;
+  }
+} else {
+  // localStorage no está habilitado
+  console.log("localStorage no está habilitado. No podrás utilizarlo.");
+}
+
+if (navigator.cookieEnabled === false) {
+  alert("Por favor, habilita las cookies en tu navegador para usar todas las funciones del sitio.");
+} else {
+  setCookie("miCookie", "miValor", 365); // La cookie expirará en un año
+}
+
+function setCookie(nombre, valor, expiracionDias) {
+  var fechaExpiracion = new Date();
+  fechaExpiracion.setDate(fechaExpiracion.getDate() + expiracionDias);
+  var cookie = nombre + "=" + valor + ";expires=" + fechaExpiracion.toUTCString() + ";path=/";
+  document.cookie = cookie;
+  // Verificar si la cookie se ha creado
+  if (cookieExiste(nombre)) {
+    console.log('La cookie se creó correctamente.');
+  } else {
+    console.log('Hubo un problema al crear la cookie.');
+  }
+
+}
+// Función para verificar si una cookie existe
+function cookieExiste(nombreCookie) {
+  var cookies = document.cookie.split(';');
+  for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i].trim();
+    // Verificar si la cookie comienza con el nombre proporcionado
+    if (cookie.indexOf(nombreCookie + '=') === 0) {
+      return true;
+    }
+  }
+  return false;
+}
+
+
