@@ -44,25 +44,48 @@ function cerrarModal(modal) {
 }
 //----------------------------------- crear Documento txt -----------------------------------
 // Ruta al archivo en tu repositorio
-const filePath = "https://danielcontreras205.github.io/assets/titels/db.txt";
+const filePath = "db.txt";
 
-// Nueva información que deseas escribir en el archivo
-const nuevaInformacion = "Esto es un nuevo contenido.";
+// Nuevos datos que deseas agregar al archivo
+const newData = 'Nuevo contenido del archivo.';
 
-// Realiza una solicitud PUT al servidor
-fetch(filePath, {
-  method: "PUT",
-  headers: {
-    "Content-Type": "text/plain",
-  },
-  body: nuevaInformacion,
-})
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error("Error en la solicitud.");
-    }
-    console.log("Archivo editado correctamente.");
+// Token de acceso personal de GitHub (necesitas crear uno en tu cuenta)
+const githubToken = '';
+
+// URL del repositorio en GitHub
+const repoUrl = 'https://danielcontreras205.github.io/assets/titels/' + filePath;
+
+// Encabezados de la solicitud con el token de acceso
+const headers = new Headers({
+  'Authorization': 'Bearer ' + githubToken,
+  'Content-Type': 'application/json',
+});
+
+// Obtener el contenido actual del archivo
+fetch(repoUrl, { headers })
+  .then(response => response.json())
+  .then(data => {
+    // Actualizar el contenido del archivo
+    // Entonces, btoa y atob trabajan juntas para codificar datos binarios
+    console.log(data.content);
+    const updatedContent = (data.content + '\n' + newData).trim();
+    
+    // Crear un objeto de datos para la solicitud de actualización
+    const updateData = {
+      message: 'Actualización automática del archivo desde JavaScript',
+      content: updatedContent,
+      sha: data.sha,
+    };
+
+    // Realizar la solicitud PUT para actualizar el contenido
+    fetch(repoUrl, {
+      method: 'PUT',
+      headers,
+      body: JSON.stringify(updateData),
+    })
+    .then(response => response.json())
+    .then(result => console.log(result))
+    .catch(error => console.error(error));
   })
-  .catch((error) => {
-    console.error("Error:", error.message);
-  });
+  .catch(error => console.error(error));
+
