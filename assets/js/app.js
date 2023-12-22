@@ -90,7 +90,7 @@ function cookieExiste(nombreCookie) {
   return false;
 }
 // actualiza coockie
-function setCookie(nombre, valor, expiracionDias) {
+function updateCoockie(nombre, valor, expiracionDias) {
   console.log('se actualiza coockie');
   var fechaExpiracion = new Date();
   fechaExpiracion.setDate(fechaExpiracion.getDate() + expiracionDias);
