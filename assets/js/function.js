@@ -51,18 +51,19 @@ const repoName = 'danielcontreras205.github.io';
 const filePath = 'db.txt';
 const branchName = 'main';
 
-var url = 'https://api.github.com/repos/'+ repoOwner +'/'+ repoName +'/'+'contents/assets/titels/'+filePath;
-alert(url);
+var url = 'https://api.github.com/repos/' + repoOwner + '/' + repoName + '/' + 'contents/assets/titels/' + filePath;
+console.log(url + "\n" + token);
+
 // Obtener el contenido actual del archivo
-fetch('https://api.github.com/repos/'+ repoOwner +'/'+ repoName +'/'+'contents/assets/titels/'+filePath, {
+fetch('https://api.github.com/repos/' + repoOwner + '/' + repoName + '/' + 'contents/assets/titels/' + filePath, {
   headers: {
-    Authorization: 'Bearer'+githubToken,
+    Authorization: 'Bearer' + githubToken,
   },
 })
   .then(response => response.json())
   .then(data => {
     const currentContent = atob(data.content);
-
+    console.log(atob(data.content));
     // Modificar el contenido según sea necesario
     const newData = 'Nuevo contenido del archivo.';
     const updatedContent = currentContent + '\n' + newData;
@@ -75,10 +76,10 @@ fetch('https://api.github.com/repos/'+ repoOwner +'/'+ repoName +'/'+'contents/a
     };
 
     // Realizar la solicitud PUT para actualizar el contenido
-    return fetch('https://api.github.com/repos/'+ repoOwner +'/'+ repoName +'/'+'contents/assets/titels/'+filePath+'?ref='+branchName, {
+    return fetch('https://api.github.com/repos/' + repoOwner + '/' + repoName + '/' + 'contents/assets/titels/' + filePath + '?ref=' + branchName, {
       method: 'PUT',
       headers: {
-        Authorization: 'Bearer'+ githubToken,
+        Authorization: 'Bearer' + githubToken,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(updateData),
