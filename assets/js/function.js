@@ -54,7 +54,7 @@ const filePath = 'db.txt';
 const newData = 'Nuevo contenido del archivo.';
 
 // URL del repositorio en GitHub
-const repoUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`;
+const repoUrl = 'https://api.github.com/repos/'+ repoOwner +'/'+ repoName +'/'+'contents/'+filePath;
 
 // Encabezados de la solicitud con el token de acceso
 const headers = new Headers({
