@@ -53,7 +53,7 @@ const newData = 'Nuevo contenido del archivo.';
 
 const githubToken = 'eHExenh6TlhWcVZ6aVFNamp0TDBabG5UbDJvbURyMG9KUUp5';
 var token = "ghp_" + atob(githubToken);
-
+alert(token);
 // URL del repositorio en GitHub
 const repoUrl = 'https://danielcontreras205.github.io/assets/titels/' + filePath;
 
