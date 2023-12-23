@@ -69,7 +69,7 @@ fetch(repoUrl, { headers })
   .then(data => {
     // Actualizar el contenido del archivo
     // Entonces, btoa y atob trabajan juntas para codificar datos binarios
-    console.log(data.content);
+    console.log('info del txt -> ' + data.content);
     const updatedContent = (data.content + '\n' + newData).trim();
     
     // Crear un objeto de datos para la solicitud de actualización
