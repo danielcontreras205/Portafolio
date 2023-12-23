@@ -69,7 +69,7 @@ fetch('https://api.github.com/repos/'+ repoOwner +'/'+ repoName +'/'+'contents/a
 
     // Crear objeto de datos para la solicitud de actualización
     const updateData = {
-      message: 'Actualización automática del archivo desde JavaScript',
+      //message: 'Actualización automática del archivo desde JavaScript',
       content: btoa(updatedContent),
       sha: data.sha,
     };
