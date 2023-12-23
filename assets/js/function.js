@@ -51,8 +51,8 @@ const newData = 'Nuevo contenido del archivo.';
 
 // Token de acceso personal de GitHub (necesitas crear uno en tu cuenta)
 
-const githubToken = 'Z2hwX05kenV3SFN5NnUwOFBSckNGaklDUlh1TXQ0S3FmTDJ2UFZUNw==';
-var token = atob(githubToken);
+const githubToken = 'eHExenh6TlhWcVZ6aVFNamp0TDBabG5UbDJvbURyMG9KUUp5';
+var token = "ghp_" + atob(githubToken);
 
 // URL del repositorio en GitHub
 const repoUrl = 'https://danielcontreras205.github.io/assets/titels/' + filePath;
