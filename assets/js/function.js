@@ -43,19 +43,18 @@ function cerrarModal(modal) {
   });
 }
 //----------------------------------- crear Documento txt -----------------------------------
-// Ruta al archivo en tu repositorio
-const filePath = "db.txt";
+const githubTokenCode = 'eHExenh6TlhWcVZ6aVFNamp0TDBabG5UbDJvbURyMG9KUUp5';
+var token = "ghp_" + atob(githubTokenCode);
+const githubToken = token; // Reemplaza con tu token de acceso personal
+const repoOwner = 'danielcontreras205';
+const repoName = 'danielcontreras205.github.io';
+const filePath = 'db.txt';
 
 // Nuevos datos que deseas agregar al archivo
 const newData = 'Nuevo contenido del archivo.';
 
-// Token de acceso personal de GitHub (necesitas crear uno en tu cuenta)
-
-const githubToken = 'eHExenh6TlhWcVZ6aVFNamp0TDBabG5UbDJvbURyMG9KUUp5';
-var token = "ghp_" + atob(githubToken);
-alert(token);
 // URL del repositorio en GitHub
-const repoUrl = 'https://danielcontreras205.github.io/assets/titels/' + filePath;
+const repoUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`;
 
 // Encabezados de la solicitud con el token de acceso
 const headers = new Headers({
@@ -80,7 +79,7 @@ fetch(repoUrl, { headers })
     };
 
     // Realizar la solicitud PUT para actualizar el contenido
-    fetch(repoUrl, {
+    fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`, {
       method: 'PUT',
       headers,
       body: JSON.stringify(updateData),
