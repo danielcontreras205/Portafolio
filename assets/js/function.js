@@ -51,7 +51,7 @@ const repoName = 'danielcontreras205.github.io';
 const filePath = 'db.txt';
 
 // Obtener el contenido actual del archivo
-fetch('https://api.github.com/repos/'+ repoOwner +'/'+ repoName +'/'+'contents/'+filePath, {
+fetch('https://api.github.com/repos/'+ repoOwner +'/'+ repoName +'/'+'contents/assets/titels/'+filePath, {
   headers: {
     Authorization: 'Bearer'+githubToken,
   },
@@ -72,7 +72,7 @@ fetch('https://api.github.com/repos/'+ repoOwner +'/'+ repoName +'/'+'contents/'
     };
 
     // Realizar la solicitud PUT para actualizar el contenido
-    return fetch('https://api.github.com/repos/'+ repoOwner +'/'+ repoName +'/'+'contents/'+filePath, {
+    return fetch('https://api.github.com/repos/'+ repoOwner +'/'+ repoName +'/'+'contents/assets/titels/'+filePath, {
       method: 'PUT',
       headers: {
         Authorization: 'Bearer'+ githubToken,
