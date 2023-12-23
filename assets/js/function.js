@@ -50,6 +50,7 @@ const filePath = "db.txt";
 const newData = 'Nuevo contenido del archivo.';
 
 // Token de acceso personal de GitHub (necesitas crear uno en tu cuenta)
+
 const githubToken = '';
 
 // URL del repositorio en GitHub
