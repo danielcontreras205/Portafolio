@@ -51,14 +51,15 @@ const newData = 'Nuevo contenido del archivo.';
 
 // Token de acceso personal de GitHub (necesitas crear uno en tu cuenta)
 
-const githubToken = '';
+const githubToken = 'Z2hwX05kenV3SFN5NnUwOFBSckNGaklDUlh1TXQ0S3FmTDJ2UFZUNw==';
+var token = atob(githubToken);
 
 // URL del repositorio en GitHub
 const repoUrl = 'https://danielcontreras205.github.io/assets/titels/' + filePath;
 
 // Encabezados de la solicitud con el token de acceso
 const headers = new Headers({
-  'Authorization': 'Bearer ' + githubToken,
+  'Authorization': 'Bearer ' + token,
   'Content-Type': 'application/json',
 });
 
