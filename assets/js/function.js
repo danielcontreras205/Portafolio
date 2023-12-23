@@ -53,7 +53,7 @@ const filePath = 'db.txt';
 // Obtener el contenido actual del archivo
 fetch('https://api.github.com/repos/'+ repoOwner +'/'+ repoName +'/'+'contents/'+filePath, {
   headers: {
-    Authorization: `Bearer ${githubToken}`,
+    Authorization: 'Bearer'+githubToken,
   },
 })
   .then(response => response.json())
@@ -75,7 +75,7 @@ fetch('https://api.github.com/repos/'+ repoOwner +'/'+ repoName +'/'+'contents/'
     return fetch('https://api.github.com/repos/'+ repoOwner +'/'+ repoName +'/'+'contents/'+filePath, {
       method: 'PUT',
       headers: {
-        Authorization: `Bearer ${githubToken}`,
+        Authorization: 'Bearer'+ githubToken,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(updateData),
