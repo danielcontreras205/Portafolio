@@ -49,6 +49,8 @@ const githubToken = token; // Reemplaza con tu token de acceso personal
 const repoOwner = 'danielcontreras205';
 const repoName = 'danielcontreras205.github.io';
 const filePath = 'db.txt';
+const branchName = 'main';
+
 var url = 'https://api.github.com/repos/'+ repoOwner +'/'+ repoName +'/'+'contents/assets/titels/'+filePath;
 alert(url);
 // Obtener el contenido actual del archivo
@@ -73,7 +75,7 @@ fetch('https://api.github.com/repos/'+ repoOwner +'/'+ repoName +'/'+'contents/a
     };
 
     // Realizar la solicitud PUT para actualizar el contenido
-    return fetch('https://api.github.com/repos/'+ repoOwner +'/'+ repoName +'/'+'contents/assets/titels/'+filePath, {
+    return fetch('https://api.github.com/repos/'+ repoOwner +'/'+ repoName +'/'+'contents/assets/titels/'+filePath+'?ref='+branchName, {
       method: 'PUT',
       headers: {
         Authorization: 'Bearer'+ githubToken,
