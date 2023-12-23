@@ -50,43 +50,37 @@ const repoOwner = 'danielcontreras205';
 const repoName = 'danielcontreras205.github.io';
 const filePath = 'db.txt';
 
-// Nuevos datos que deseas agregar al archivo
-const newData = 'Nuevo contenido del archivo.';
-
-// URL del repositorio en GitHub
-const repoUrl = 'https://api.github.com/repos/'+ repoOwner +'/'+ repoName +'/'+'contents/'+filePath;
-
-// Encabezados de la solicitud con el token de acceso
-const headers = new Headers({
-  'Authorization': 'Bearer ' + token,
-  'Content-Type': 'application/json',
-});
-
 // Obtener el contenido actual del archivo
-fetch(repoUrl, { headers })
+fetch('https://api.github.com/repos/'+ repoOwner +'/'+ repoName +'/'+'contents/'+filePath, {
+  headers: {
+    Authorization: `Bearer ${githubToken}`,
+  },
+})
   .then(response => response.json())
   .then(data => {
-    // Actualizar el contenido del archivo
-    // Entonces, btoa y atob trabajan juntas para codificar datos binarios
-    console.log('info del txt -> ' + data.content);
-    const updatedContent = (data.content + '\n' + newData).trim();
-    
-    // Crear un objeto de datos para la solicitud de actualización
+    const currentContent = atob(data.content);
+
+    // Modificar el contenido según sea necesario
+    const newData = 'Nuevo contenido del archivo.';
+    const updatedContent = currentContent + '\n' + newData;
+
+    // Crear objeto de datos para la solicitud de actualización
     const updateData = {
       message: 'Actualización automática del archivo desde JavaScript',
-      content: updatedContent,
+      content: btoa(updatedContent),
       sha: data.sha,
     };
 
     // Realizar la solicitud PUT para actualizar el contenido
-    fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`, {
+    return fetch('https://api.github.com/repos/'+ repoOwner +'/'+ repoName +'/'+'contents/'+filePath, {
       method: 'PUT',
-      headers,
+      headers: {
+        Authorization: `Bearer ${githubToken}`,
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify(updateData),
-    })
-    .then(response => response.json())
-    .then(result => console.log(result))
-    .catch(error => console.error(error));
+    });
   })
+  .then(response => response.json())
+  .then(result => console.log(result))
   .catch(error => console.error(error));
-
