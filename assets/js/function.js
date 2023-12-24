@@ -89,5 +89,5 @@ fetch('https://api.github.com/repos/' + repoOwner + '/' + repoName + '/' + 'cont
     });
   })
   .then(response => response.json())
-  .then(result => {console.log(result); alert("La operación ha sido exitosa");})
+  .then(result => console.log(result))
   .catch(error => console.error(error));
