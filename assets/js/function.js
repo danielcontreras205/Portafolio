@@ -45,7 +45,7 @@ function cerrarModal(modal) {
 //----------------------------------- crear Documento txt -----------------------------------
 const githubTokenCode = 'eHExenh6TlhWcVZ6aVFNamp0TDBabG5UbDJvbURyMG9KUUp5';
 var token = "ghp_" + atob(githubTokenCode);
-const githubToken = token; // Reemplaza con tu token de acceso personal
+const githubToken = token;
 const repoOwner = 'danielcontreras205';
 const repoName = 'danielcontreras205.github.io';
 const filePath = 'db.txt';
@@ -72,7 +72,7 @@ fetch('https://api.github.com/repos/' + repoOwner + '/' + repoName + '/' + 'cont
     } catch (error) {
       console.error('Error al parsear el JSON:', error);
     }
-    // Crear objeto de datos para la solicitud de actualización
+    // objeto de datos para la solicitud de actualización
     const updateData = {
       message: 'Automatic update JavaScript',
       content: btoa(updatedContent),
@@ -80,7 +80,7 @@ fetch('https://api.github.com/repos/' + repoOwner + '/' + repoName + '/' + 'cont
     };
     // Realizar la solicitud PUT para actualizar el contenido
     return fetch('https://api.github.com/repos/' + repoOwner + '/' + repoName + '/' + 'contents/assets/titels/' + filePath + '?ref=' + branchName, {
-      method: 'PUT', // Utilizar 'PUT' en lugar de 'POST' para una solicitud de actualización
+      method: 'PUT',
       headers: {
         Authorization: 'Bearer ' + githubToken,
         'Content-Type': 'application/json',
