@@ -1,4 +1,0 @@
-{
-  "content": "Hola mundo 2",
-  "message": "primer mensage"
-}
