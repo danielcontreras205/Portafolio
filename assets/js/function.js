@@ -57,7 +57,7 @@ console.log(url + "\n" + token);
 // Obtener el contenido actual del archivo
 fetch('https://api.github.com/repos/' + repoOwner + '/' + repoName + '/' + 'contents/assets/titels/' + filePath, {
   headers: {
-    Authorization: 'Bearer' + githubToken,
+    Authorization: 'Bearer ' + githubToken,
   },
 })
   .then(response => response.json())
@@ -77,9 +77,9 @@ fetch('https://api.github.com/repos/' + repoOwner + '/' + repoName + '/' + 'cont
 
     // Realizar la solicitud PUT para actualizar el contenido
     return fetch('https://api.github.com/repos/' + repoOwner + '/' + repoName + '/' + 'contents/assets/titels/' + filePath + '?ref=' + branchName, {
-      method: 'PUT',
+      method: 'PUT', // Utilizar 'PUT' en lugar de 'POST' para una solicitud de actualización
       headers: {
-        Authorization: 'Bearer' + githubToken,
+        Authorization: 'Bearer ' + githubToken,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(updateData),
