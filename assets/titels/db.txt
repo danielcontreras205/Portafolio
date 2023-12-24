@@ -2,4 +2,3 @@
   "content": "Hola mundo 2",
   "message": "primer mensage"
 }
-Nuevo contenido del archivo.
