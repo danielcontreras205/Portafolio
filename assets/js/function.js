@@ -50,6 +50,7 @@ const repoOwner = 'danielcontreras205';
 const repoName = 'danielcontreras205.github.io';
 const filePath = 'db.txt';
 const branchName = 'main';
+var updatedContent = '';
 
 var url = 'https://api.github.com/repos/' + repoOwner + '/' + repoName + '/' + 'contents/assets/titels/' + filePath;
 console.log(url + "\n" + token);
@@ -62,19 +63,21 @@ fetch('https://api.github.com/repos/' + repoOwner + '/' + repoName + '/' + 'cont
 })
   .then(response => response.json())
   .then(data => {
-    const currentContent = atob(data.content);
-    console.log(atob(data.content));
-    // Modificar el contenido según sea necesario
-    const newData = 'Nuevo contenido del archivo.';
-    const updatedContent = currentContent + '\n' + newData;
-
+    //desincripta y tranforma en JSON
+    try {
+      var Object = JSON.parse(atob(data.content));
+      Object.content = String(parseInt(localStorage.getItem("visitCount")) + 1);
+      var currentContent = JSON.stringify(Object);
+      updatedContent = currentContent;
+    } catch (error) {
+      console.error('Error al parsear el JSON:', error);
+    }
     // Crear objeto de datos para la solicitud de actualización
     const updateData = {
-      message: 'Actualización automática del archivo desde JavaScript',
+      message: 'Automatic update JavaScript',
       content: btoa(updatedContent),
       sha: data.sha,
     };
-
     // Realizar la solicitud PUT para actualizar el contenido
     return fetch('https://api.github.com/repos/' + repoOwner + '/' + repoName + '/' + 'contents/assets/titels/' + filePath + '?ref=' + branchName, {
       method: 'PUT', // Utilizar 'PUT' en lugar de 'POST' para una solicitud de actualización
