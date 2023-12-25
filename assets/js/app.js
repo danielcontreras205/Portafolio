@@ -29,31 +29,37 @@ scrollUp.addEventListener("click", () => {
     behavior: "smooth",
   });
 });
-
+// ---------------------------- actualiza documento ----------------------------------------------------
+LecturaDeVisitas();
 //----------------------------- contador de pagina localStorage ----------------------------------------
-if (window.localStorage) {
-  // localStorage está habilitado
-  console.log("localStorage está habilitado.");
-  // Verificamos si ya existe un contador en el almacenamiento local
-  if (localStorage.getItem("visitCount")) {
-    // Si existe, incrementamos el contador
-    let count = parseInt(localStorage.getItem("visitCount")) + 1;
-    localStorage.setItem("visitCount", count);
-    document.getElementById("count").textContent = count;
+function CrearlocalStorage (contadorLocalStorage){
+  if (window.localStorage) {
+    // localStorage está habilitado
+    console.log("localStorage está habilitado.");
+    // Verificamos si ya existe un contador en el almacenamiento local
+    if (localStorage.getItem("visitCount")) {
+      // Si existe, incrementamos el contador
+      let count = contadorLocalStorage;
+      localStorage.setItem("visitCount", count);
+      document.getElementById("count").textContent = count;
+    } else {
+      // Si no existe, inicializamos el contador a 1
+      localStorage.setItem("visitCount", contadorLocalStorage);
+      document.getElementById("count").textContent = contadorLocalStorage;
+    }
   } else {
-    // Si no existe, inicializamos el contador a 1
-    localStorage.setItem("visitCount", 1);
-    document.getElementById("count").textContent = 1;
+    // localStorage no está habilitado
+    console.log("localStorage no está habilitado. No podrás utilizarlo.");
   }
-} else {
-  // localStorage no está habilitado
-  console.log("localStorage no está habilitado. No podrás utilizarlo.");
 }
+
 //----------------------------- contador de pagina cookie----------------------------------------
-if (navigator.cookieEnabled === false) {
-  alert("Por favor, habilita las cookies en tu navegador para usar todas las funciones del sitio.");
-} else {
-  setCookie("miCookie", 1, 7); // La cookie expirará en un año
+function CrearCooking (contadorCooking){
+  if (navigator.cookieEnabled === false) {
+    alert("Por favor, habilita las cookies en tu navegador para usar todas las funciones del sitio.");
+  } else {
+    setCookie("miCookie", contadorCooking, 7); // La cookie expirará en 7 dias
+  }
 }
 function setCookie(nombre, valor, expiracionDias) {
   if (cookieExiste(nombre)) {
@@ -66,7 +72,7 @@ function setCookie(nombre, valor, expiracionDias) {
         // Verificar si la cookie tiene el nombre que estamos buscando
         if (cookie.startsWith(nombre + '=')) {
             // Obtener y devolver el valor de la cookie, la base es 10, que es decimal.
-            valor = parseInt(cookie.substring(nombre.length + 1), 10) + 1;
+            // valor = parseInt(cookie.substring(nombre.length + 1), 10) + 1;
         }
     }
     updateCoockie(nombre,valor,expiracionDias);

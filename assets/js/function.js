@@ -42,52 +42,73 @@ function cerrarModal(modal) {
     }
   });
 }
-//----------------------------------- crear Documento txt -----------------------------------
-const githubTokenCode = 'eHExenh6TlhWcVZ6aVFNamp0TDBabG5UbDJvbURyMG9KUUp5';
-var token = "ghp_" + atob(githubTokenCode);
-const githubToken = token;
-const repoOwner = 'danielcontreras205';
-const repoName = 'danielcontreras205.github.io';
-const filePath = 'db.txt';
-const branchName = 'main';
-var updatedContent = '';
-
-var url = 'https://api.github.com/repos/' + repoOwner + '/' + repoName + '/' + 'contents/assets/titels/' + filePath;
-console.log(url + "\n" + token);
-
-// Obtener el contenido actual del archivo
-fetch('https://api.github.com/repos/' + repoOwner + '/' + repoName + '/' + 'contents/assets/titels/' + filePath, {
-  headers: {
-    Authorization: 'Bearer ' + githubToken,
-  },
-})
-  .then(response => response.json())
-  .then(data => {
-    //desincripta y tranforma en JSON
-    try {
-      var Object = JSON.parse(atob(data.content));
-      Object.content = String(parseInt(localStorage.getItem("visitCount")) + 1);
-      var currentContent = JSON.stringify(Object);
-      updatedContent = currentContent;
-    } catch (error) {
-      console.error('Error al parsear el JSON:', error);
-    }
-    // objeto de datos para la solicitud de actualización
-    const updateData = {
-      message: 'Automatic update JavaScript',
-      content: btoa(updatedContent),
-      sha: data.sha,
-    };
-    // Realizar la solicitud PUT para actualizar el contenido
-    return fetch('https://api.github.com/repos/' + repoOwner + '/' + repoName + '/' + 'contents/assets/titels/' + filePath + '?ref=' + branchName, {
-      method: 'PUT',
+//----------------------------------- datos Documento txt -----------------------------------
+function LecturaDeVisitas() {
+  const githubTokenCode = "eHExenh6TlhWcVZ6aVFNamp0TDBabG5UbDJvbURyMG9KUUp5";
+  var token = "ghp_" + atob(githubTokenCode);
+  const githubToken = token;
+  const repoOwner = "danielcontreras205";
+  const repoName = "danielcontreras205.github.io";
+  const filePath = "db.txt";
+  const branchName = "main";
+  var updatedContent = "";
+  var url = "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/" + "contents/assets/titels/" + filePath;
+  console.log( + "\n" + token);
+  // Obtener el contenido actual del archivo
+  fetch( url,
+    {
       headers: {
-        Authorization: 'Bearer ' + githubToken,
-        'Content-Type': 'application/json',
+        Authorization: "Bearer " + githubToken,
       },
-      body: JSON.stringify(updateData),
+    }
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      try {
+        // desincripta y tranforma en JSON
+        var Object = JSON.parse(atob(data.content));
+        // aunmenta 1, la visita
+        Object.localStorage = String(parseInt(Object.localStorage) + 1);
+        Object.cooking = String(parseInt(Object.cooking) + 1);
+        // crea el localStorage y el cooking
+        CrearlocalStorage(Object.localStorage);
+        CrearCooking(Object.cooking);
+        // actualiza el documento
+        var currentContent = JSON.stringify(Object);
+        updatedContent = currentContent;
+      } catch (error) {
+        console.error("Error al parsear el JSON:", error);
+      }
+      // objeto de datos para la solicitud de actualización
+      const updateData = {
+        message: "Automatic update JavaScript",
+        content: btoa(updatedContent),
+        sha: data.sha,
+      };
+      // Realizar la solicitud PUT para actualizar el contenido
+      return fetch('https://api.github.com/repos/' + repoOwner + '/' + repoName + '/' + 'contents/assets/titels/' + filePath + '?ref=' + branchName, {
+        method: 'PUT',
+        headers: {
+          Authorization: 'Bearer ' + githubToken,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updateData),
+      });
+    })
+    .then((response) => response.json())
+    .then((result) => console.log(result))
+    .catch((error) => {
+      console.log(error);
+      //console.error(error)
     });
-  })
-  .then(response => response.json())
-  .then(result => console.log(result))
-  .catch(error => console.error(error));
+}
+
+
+
+
+
+
+
+
+
+
