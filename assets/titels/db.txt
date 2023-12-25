@@ -1,1 +1,1 @@
-{"localStorage":"21","cooking":"primer mensage"}
+{"localStorage":"0","cooking":"0"}
