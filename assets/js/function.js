@@ -53,7 +53,7 @@ function LecturaDeVisitas() {
   const branchName = "main";
   var updatedContent = "";
   var url = "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/" + "contents/assets/titels/" + filePath;
-  console.log( + "\n" + token);
+  //console.log( + "\n" + token);
   // Obtener el contenido actual del archivo
   fetch( url,
     {
@@ -96,7 +96,7 @@ function LecturaDeVisitas() {
       });
     })
     .then((response) => response.json())
-    .then((result) => console.log(result))
+    .then((result) => console.log(btoa(result))) //resultado
     .catch((error) => {
       console.log(error);
       //console.error(error)

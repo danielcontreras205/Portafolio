@@ -70,7 +70,13 @@ function setCookie(nombre, valor, expiracionDias) {
         const cookie = cookies[i].trim();
         console.log(cookie);
         // Verificar si la cookie tiene el nombre que estamos buscando
-        if (cookie.startsWith(nombre + '=')) {
+        /*  
+            el método startsWith() se utiliza para determinar si una cadena 
+            comienza con los caracteres de otra cadena. Este método devuelve 
+            true si la cadena invocadora comienza con la cadena especificada 
+            como argumento
+        */
+        if (cookie.startsWith(nombre + '=')) { 
             // Obtener y devolver el valor de la cookie, la base es 10, que es decimal.
             // valor = parseInt(cookie.substring(nombre.length + 1), 10) + 1;
         }
