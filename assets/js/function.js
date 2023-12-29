@@ -44,7 +44,7 @@ function cerrarModal(modal) {
 }
 //----------------------------------- datos Documento txt -----------------------------------
 function LecturaDeVisitas() {
-  const githubTokenCode = "eHExenh6TlhWcVZ6aVFNamp0TDBabG5UbDJvbURyMG9KUUp5";
+  const githubTokenCode = "VW5jS0NMUUZWc3JxNHMyOHZ5NmpYQzhaRFRLdzBaNDlSS1A3";
   var token = "ghp_" + atob(githubTokenCode);
   const githubToken = token;
   const repoOwner = "danielcontreras205";
