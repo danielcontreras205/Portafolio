@@ -190,23 +190,34 @@ document.addEventListener("DOMContentLoaded", function() {
   var loaderContainers = document.querySelectorAll('.loader-container');
   var imageContainer = document.querySelector('.image-container');
 
-  function imageLoaded(index) {
-    loaderContainers[index].style.display = 'none';
+  function imageProgress(index, event) {
+    // Verifica el progreso de carga
+    if (event.lengthComputable) {
+      var percentage = (event.loaded / event.total) * 100;
+      if (percentage >= 50) {
+        loaderContainers[index].style.display = 'none';
 
-    // Verifica si todas las imágenes se han cargado
-    var allImagesLoaded = Array.from(loaderContainers).every(function(loaderContainer) {
-      return loaderContainer.style.display === 'none';
-    });
+        // Verifica si todas las imágenes se han cargado al menos al 50%
+        var allImagesLoaded = Array.from(loaderContainers).every(function(loaderContainer) {
+          return loaderContainer.style.display === 'none';
+        });
 
-    if (allImagesLoaded) {
-      imageContainer.style.display = 'block';
+        if (allImagesLoaded) {
+          imageContainer.style.display = 'block';
+        }
+      }
     }
   }
 
-  // Agrega un evento de carga para cada imagen
+  // Agrega un evento de progreso para cada imagen
   images.forEach(function(image, index) {
+    image.addEventListener('progress', function(event) {
+      imageProgress(index, event);
+    });
+
+    // Agrega un evento de carga para manejar el caso en que no se dispare el evento de progreso
     image.addEventListener('load', function() {
-      imageLoaded(index);
+      imageProgress(index, { loaded: 100, total: 100 });
     });
   });
 
