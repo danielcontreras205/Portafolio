@@ -185,49 +185,28 @@ function updateCoockie(nombre, valor, expiracionDias) {
   document.getElementById("countCookies").textContent = valor;
 }
 //---------------------------------- cargar imagenes ---------------------------------------
-document.addEventListener("DOMContentLoaded", function() {
-  var images = document.querySelectorAll('.image');
-  var loaderContainers = document.querySelectorAll('.loader-container');
-  var imageContainer = document.querySelector('.image-container');
+document.addEventListener("DOMContentLoaded", function () {
+  var container = document.querySelector(".image-container");
+  var image = container.querySelector("img");
+  var loaderContainer = container.querySelector(".loader-container");
 
-  function imageProgress(index, event) {
-    // Verifica el progreso de carga
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", image.src, true);
+
+  xhr.onprogress = function (event) {
     if (event.lengthComputable) {
-      var percentage = (event.loaded / event.total) * 100;
-      if (percentage >= 75) {
-        loaderContainers[index].style.display = 'none';
-
-        // Verifica si todas las imágenes se han cargado al menos al 50%
-        var allImagesLoaded = Array.from(loaderContainers).every(function(loaderContainer) {
-          return loaderContainer.style.display === 'none';
-        });
-        
-        if (allImagesLoaded) {
-          imageContainer.style.display = 'block';
-        }
-      }
+      var percentComplete = (event.loaded / event.total) * 100;
+      // Puedes ajustar el estilo del mensaje de carga según tus preferencias
+      loaderContainer.style.display = "block";
     }
-  }
+  };
 
-  // Agrega un evento de progreso para cada imagen
-  images.forEach(function(image, index) {
-    image.addEventListener('progress', function(event) {
-      imageProgress(index, event);
-    });
+  xhr.onload = function () {
+    // Oculta el contenedor de carga cuando la imagen ha cargado completamente
+    loaderContainer.style.display = "none";
+  };
 
-    // Agrega un evento de carga para manejar el caso en que no se dispare el evento de progreso
-    image.addEventListener('load', function() {
-      imageProgress(index, { loaded: 100, total: 100 });
-    });
-  });
-
-  setTimeout(function() {
-    // Muestra las imágenes después de un tiempo aunque no estén completamente cargadas
-    imageContainer.style.display = 'block';
-    loaderContainers.forEach(function(loaderContainer) {
-      loaderContainer.style.display = 'none';
-    });
-  }, 3000); // Ajusta el tiempo según sea necesario
+  xhr.send();
 });
 //-------------------------------------------------------------------------------------------
 
