@@ -1,1 +1,1 @@
-{"localStorage":"24","cooking":"24"}
+{"localStorage":"25","cooking":"25"}
