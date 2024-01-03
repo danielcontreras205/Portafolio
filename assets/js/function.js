@@ -227,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function() {
     loaderContainers.forEach(function(loaderContainer) {
       loaderContainer.style.display = 'none';
     });
-  }, 5000); // Ajusta el tiempo según sea necesario
+  }, 2000); // Ajusta el tiempo según sea necesario
 });
 //-------------------------------------------------------------------------------------------
 
