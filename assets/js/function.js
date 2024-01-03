@@ -191,10 +191,9 @@ document.addEventListener("DOMContentLoaded", function() {
   var imageContainer = document.querySelector('.image-container');
 
   var loadedImages = 0;
-
+  imageLoaded();
   function imageLoaded() {
     loadedImages++;
-
     if (loadedImages === images.length) {
       // Todas las imágenes se han cargado, oculta el loader
       imageContainer.style.display = 'block';
@@ -210,9 +209,11 @@ document.addEventListener("DOMContentLoaded", function() {
     loaderContainers.forEach(function(loaderContainer) {
       loaderContainer.style.display = 'none';
     });
-  }, 5000); // Ajusta el tiempo según sea necesario
+  }, 1000); // Ajusta el tiempo según sea necesario
 });
 //-------------------------------------------------------------------------------------------
+var nombreHost = window.location.hostname;
+console.log("Nombre del host del servidor: " + nombreHost);
 
 
 
