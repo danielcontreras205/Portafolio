@@ -44,7 +44,8 @@ function cerrarModal(modal) {
 }
 //----------------------------------- datos Documento txt -----------------------------------
 function LecturaDeVisitas() {
-  const githubTokenCode = "VW5jS0NMUUZWc3JxNHMyOHZ5NmpYQzhaRFRLdzBaNDlSS1A3";
+  //const githubTokenCode = "VW5jS0NMUUZWc3JxNHMyOHZ5NmpYQzhaRFRLdzBaNDlSS1A3";
+  const githubTokenCode = "";
   var token = "ghp_" + atob(githubTokenCode);
   const githubToken = token;
   const repoOwner = "danielcontreras205";
@@ -183,11 +184,19 @@ function updateCoockie(nombre, valor, expiracionDias) {
   document.cookie = cookie;
   document.getElementById("countCookies").textContent = valor;
 }
+//---------------------------------- cargar imagenes ---------------------------------------
+const blurredImageDiv = document.querySelector(".blurred-img")
+const img = blurredImageDiv.querySelector("img")
+function loaded() {
+  blurredImageDiv.classList.add("loaded")
+}
 
-
-
-
-
+if (img.complete) {
+  loaded()
+} else {
+  img.addEventListener("load", loaded)
+}
+//-------------------------------------------------------------------------------------------
 
 
 
