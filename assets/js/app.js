@@ -30,6 +30,6 @@ scrollUp.addEventListener("click", () => {
   });
 });
 // ---------------------------- actualiza documento ----------------------------------------------------
-LecturaDeVisitas();
+//LecturaDeVisitas();
 
 

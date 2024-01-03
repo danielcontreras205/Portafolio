@@ -43,66 +43,66 @@ function cerrarModal(modal) {
   });
 }
 //----------------------------------- datos Documento txt -----------------------------------
-function LecturaDeVisitas() {
-  const githubTokenCode = "VW5jS0NMUUZWc3JxNHMyOHZ5NmpYQzhaRFRLdzBaNDlSS1A3";
-  //const githubTokenCode = "";
-  var token = "ghp_" + atob(githubTokenCode);
-  const githubToken = token;
-  const repoOwner = "danielcontreras205";
-  const repoName = "danielcontreras205.github.io";
-  const filePath = "db.txt";
-  const branchName = "main";
-  var updatedContent = "";
-  var url = "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/" + "contents/assets/titels/" + filePath;
-  //console.log( + "\n" + token);
-  // Obtener el contenido actual del archivo
-  fetch( url,
-    {
-      headers: {
-        Authorization: "Bearer " + githubToken,
-      },
-    }
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      try {
-        // desincripta y tranforma en JSON
-        var Object = JSON.parse(atob(data.content));
-        // aunmenta 1, la visita
-        Object.localStorage = String(parseInt(Object.localStorage) + 1);
-        Object.cooking = String(parseInt(Object.cooking) + 1);
-        // crea el localStorage y el cooking
-        CrearlocalStorage(Object.localStorage);
-        CrearCooking(Object.cooking);
-        // actualiza el documento
-        var currentContent = JSON.stringify(Object);
-        updatedContent = currentContent;
-      } catch (error) {
-        console.error("Error al parsear el JSON:", error);
-      }
-      // objeto de datos para la solicitud de actualización
-      const updateData = {
-        message: "Automatic update JavaScript",
-        content: btoa(updatedContent),
-        sha: data.sha,
-      };
-      // Realizar la solicitud PUT para actualizar el contenido
-      return fetch('https://api.github.com/repos/' + repoOwner + '/' + repoName + '/' + 'contents/assets/titels/' + filePath + '?ref=' + branchName, {
-        method: 'PUT',
-        headers: {
-          Authorization: 'Bearer ' + githubToken,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(updateData),
-      });
-    })
-    .then((response) => response.json())
-    .then((result) => console.log(btoa(result))) //resultado
-    .catch((error) => {
-      console.log(error);
-      //console.error(error)
-    });
-}
+// function LecturaDeVisitas() {
+//   //const githubTokenCode = "VW5jS0NMUUZWc3JxNHMyOHZ5NmpYQzhaRFRLdzBaNDlSS1A3";
+//   const githubTokenCode = "";
+//   var token = "ghp_" + atob(githubTokenCode);
+//   const githubToken = token;
+//   const repoOwner = "danielcontreras205";
+//   const repoName = "danielcontreras205.github.io";
+//   const filePath = "db.txt";
+//   const branchName = "main";
+//   var updatedContent = "";
+//   var url = "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/" + "contents/assets/titels/" + filePath;
+//   //console.log( + "\n" + token);
+//   // Obtener el contenido actual del archivo
+//   fetch( url,
+//     {
+//       headers: {
+//         Authorization: "Bearer " + githubToken,
+//       },
+//     }
+//   )
+//     .then((response) => response.json())
+//     .then((data) => {
+//       try {
+//         // desincripta y tranforma en JSON
+//         var Object = JSON.parse(atob(data.content));
+//         // aunmenta 1, la visita
+//         Object.localStorage = String(parseInt(Object.localStorage) + 1);
+//         Object.cooking = String(parseInt(Object.cooking) + 1);
+//         // crea el localStorage y el cooking
+//         CrearlocalStorage(Object.localStorage);
+//         CrearCooking(Object.cooking);
+//         // actualiza el documento
+//         var currentContent = JSON.stringify(Object);
+//         updatedContent = currentContent;
+//       } catch (error) {
+//         console.error("Error al parsear el JSON:", error);
+//       }
+//       // objeto de datos para la solicitud de actualización
+//       const updateData = {
+//         message: "Automatic update JavaScript",
+//         content: btoa(updatedContent),
+//         sha: data.sha,
+//       };
+//       // Realizar la solicitud PUT para actualizar el contenido
+//       return fetch('https://api.github.com/repos/' + repoOwner + '/' + repoName + '/' + 'contents/assets/titels/' + filePath + '?ref=' + branchName, {
+//         method: 'PUT',
+//         headers: {
+//           Authorization: 'Bearer ' + githubToken,
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(updateData),
+//       });
+//     })
+//     .then((response) => response.json())
+//     .then((result) => console.log(btoa(result))) //resultado
+//     .catch((error) => {
+//       console.log(error);
+//       //console.error(error)
+//     });
+// }
 
 //----------------------------- contador de pagina localStorage ----------------------------------------
 function CrearlocalStorage (contadorLocalStorage){
@@ -189,45 +189,45 @@ document.addEventListener("DOMContentLoaded", function() {
   var images = document.querySelectorAll('.image');
   var loaderContainers = document.querySelectorAll('.loader-container');
   var imageContainer = document.querySelector('.image-container');
-
-  function imageProgress(index, event) {
-    // Verifica el progreso de carga
-    if (event.lengthComputable) {
-      var percentage = (event.loaded / event.total) * 100;
-      if (percentage >= 75) {
-        loaderContainers[index].style.display = 'none';
-
-        // Verifica si todas las imágenes se han cargado al menos al 50%
-        var allImagesLoaded = Array.from(loaderContainers).every(function(loaderContainer) {
-          return loaderContainer.style.display === 'none';
-        });
-        
-        if (allImagesLoaded) {
-          imageContainer.style.display = 'block';
-        }
-      }
-    }
-  }
-
+  console.log('entra al DOM ' + images);
   // Agrega un evento de progreso para cada imagen
   images.forEach(function(image, index) {
     image.addEventListener('progress', function(event) {
+      console.log('Evento de progreso para la imagen con índice ' + index + ' detectado.');
       imageProgress(index, event);
     });
-
-    // Agrega un evento de carga para manejar el caso en que no se dispare el evento de progreso
-    image.addEventListener('load', function() {
-      imageProgress(index, { loaded: 100, total: 100 });
-    });
+    
   });
 
-  setTimeout(function() {
-    // Muestra las imágenes después de un tiempo aunque no estén completamente cargadas
-    imageContainer.style.display = 'block';
-    loaderContainers.forEach(function(loaderContainer) {
-      loaderContainer.style.display = 'none';
-    });
-  }, 3000); // Ajusta el tiempo según sea necesario
+  function imageProgress(index, event) {
+    // Verifica el progreso de carga
+    console.log('entra en la funcion ' + index + ' ' + event);
+    // if (event.lengthComputable) {
+    //   var percentage = (event.loaded / event.total) * 100;
+    //   if (percentage >= 75) {
+    //     loaderContainers[index].style.display = 'none';
+
+    //     // Verifica si todas las imágenes se han cargado al menos al 50%
+    //     var allImagesLoaded = Array.from(loaderContainers).every(function(loaderContainer) {
+    //       return loaderContainer.style.display === 'none';
+    //     });
+        
+    //     if (allImagesLoaded) {
+    //       imageContainer.style.display = 'block';
+    //     }
+    //   }
+    // }
+  }
+
+  
+
+  // setTimeout(function() {
+  //   // Muestra las imágenes después de un tiempo aunque no estén completamente cargadas
+  //   imageContainer.style.display = 'block';
+  //   loaderContainers.forEach(function(loaderContainer) {
+  //     loaderContainer.style.display = 'none';
+  //   });
+  // }, 3000); // Ajusta el tiempo según sea necesario
 });
 //-------------------------------------------------------------------------------------------
 
