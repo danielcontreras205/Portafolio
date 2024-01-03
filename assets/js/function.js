@@ -187,7 +187,7 @@ function updateCoockie(nombre, valor, expiracionDias) {
 //---------------------------------- cargar imagenes ---------------------------------------
 document.addEventListener("DOMContentLoaded", function () {
   var container = document.querySelector(".image-container");
-  var image = container.querySelector("img");
+  var image = container.querySelector("image");
   var loaderContainer = container.querySelector(".loader-container");
 
   var xhr = new XMLHttpRequest();
