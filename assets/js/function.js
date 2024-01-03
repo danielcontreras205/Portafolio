@@ -196,8 +196,14 @@ document.addEventListener("DOMContentLoaded", function () {
   xhr.onprogress = function (event) {
     if (event.lengthComputable) {
       var percentComplete = (event.loaded / event.total) * 100;
-      // Puedes ajustar el estilo del mensaje de carga según tus preferencias
-      loaderContainer.style.display = "block";
+
+      // Puedes ajustar el porcentaje para mostrar el contenedor de carga
+      var thresholdPercentage = 70;
+
+      if (percentComplete >= thresholdPercentage) {
+        // Muestra el contenedor de carga cuando se alcanza el umbral
+        loaderContainer.style.display = "block";
+      }
     }
   };
 
