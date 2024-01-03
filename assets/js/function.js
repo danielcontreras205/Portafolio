@@ -185,17 +185,33 @@ function updateCoockie(nombre, valor, expiracionDias) {
   document.getElementById("countCookies").textContent = valor;
 }
 //---------------------------------- cargar imagenes ---------------------------------------
-const blurredImageDiv = document.querySelector(".blurred-img")
-const img = blurredImageDiv.querySelector("img")
-function loaded() {
-  blurredImageDiv.classList.add("loaded")
-}
+document.addEventListener("DOMContentLoaded", function() {
+  var images = document.querySelectorAll('.image');
+  var loaderContainers = document.querySelectorAll('.loader-container');
+  var imageContainer = document.querySelector('.image-container');
 
-if (img.complete) {
-  loaded()
-} else {
-  img.addEventListener("load", loaded)
-}
+  var loadedImages = 0;
+
+  function imageLoaded() {
+    loadedImages++;
+
+    if (loadedImages === images.length) {
+      // Todas las imágenes se han cargado, oculta el loader
+      imageContainer.style.display = 'block';
+      loaderContainers.forEach(function(loaderContainer) {
+        loaderContainer.style.display = 'none';
+      });
+    }
+  }
+
+  setTimeout(function() {
+    // Muestra las imágenes después de un tiempo aunque no estén completamente cargadas
+    imageContainer.style.display = 'block';
+    loaderContainers.forEach(function(loaderContainer) {
+      loaderContainer.style.display = 'none';
+    });
+  }, 5000); // Ajusta el tiempo según sea necesario
+});
 //-------------------------------------------------------------------------------------------
 
 

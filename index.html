@@ -37,7 +37,12 @@
     <!-- Hero Section -->
     <section class="hero" id="about">
       <div class="blurred-img">
-        <img src="assets/images/yo.svg" alt="jane-doe" loading="lazy" class="hero-img" />
+        <div class="image-container">
+          <div class="loader-container">
+            <div class="loader"></div>
+          </div>
+          <img src="assets/images/yo.svg" alt="jane-doe" loading="lazy" class="hero-imgimage" onload="imageLoaded()" />
+        </div>
       </div>
       <div class="bio animate__animated animate__shakeX">
         <h2 class="bio-title">¡Hola...!</h2>
@@ -113,7 +118,12 @@
       <h2 class="projects-title">Algunos de mis Proyectos</h2>
       <div class="projects-container">
         <div class="project-container project-card">
-          <img src="assets/images/expenseTracker.png" alt="expense-tracker" loading="lazy" class="project-pic" />
+          <div class="image-container">
+            <div class="loader-container">
+              <div class="loader"></div>
+            </div>
+            <img src="assets/images/expenseTracker.png" alt="expense-tracker" loading="lazy" class="project-pic image" onload="imageLoaded()" />
+          </div>
           <h3 class="project-title">Sistema de información Farmaser</h3>
           <p class="project-details">
             Diseño e implementación un sistema de información para la farmacia
@@ -135,7 +145,12 @@
           <button name="favorito" class="project-button" type="button" onclick="modal(2)"> Mas Informacion </button>
         </div>
         <div class="project-container project-card">
-          <img src="assets/images/Temporal.png" alt="greeny-earth" loading="lazy" class="project-pic" />
+          <div class="image-container">
+            <div class="loader-container">
+              <div class="loader"></div>
+            </div>
+            <img src="assets/images/Temporal.png" alt="greeny-earth" loading="lazy" class="project-pic image" onload="imageLoaded()" />
+          </div>
           <h3 class="project-title">Muy Pronto nuevos proyectos...</h3>
           <p class="project-details">
             Muy Pronto cargare mas proyectos....
@@ -143,7 +158,12 @@
           <button name="favorito" class="project-button" type="button" onclick="modal(3)"> Mas Informacion </button>
         </div>
         <div class="project-container project-card">
-          <img src="assets/images/Temporal.png" alt="greeny-earth" loading="lazy" class="project-pic" />
+          <div class="image-container">
+            <div class="loader-container">
+              <div class="loader"></div>
+            </div>
+            <img src="assets/images/Temporal.png" alt="greeny-earth" loading="lazy" class="project-pic image" onload="imageLoaded()" />
+          </div>
           <h3 class="project-title">Muy Pronto nuevos proyectos...</h3>
           <p class="project-details">
             Muy Pronto cargare mas proyectos....
