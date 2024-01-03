@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Verifica el progreso de carga
     if (event.lengthComputable) {
       var percentage = (event.loaded / event.total) * 100;
-      if (percentage >= 50) {
+      if (percentage >= 75) {
         loaderContainers[index].style.display = 'none';
 
         // Verifica si todas las imágenes se han cargado al menos al 50%
@@ -230,8 +230,6 @@ document.addEventListener("DOMContentLoaded", function() {
   }, 5000); // Ajusta el tiempo según sea necesario
 });
 //-------------------------------------------------------------------------------------------
-var nombreHost = window.location.hostname;
-console.log("Nombre del host del servidor: " + nombreHost);
 
 
 
