@@ -185,34 +185,49 @@ function updateCoockie(nombre, valor, expiracionDias) {
   document.getElementById("countCookies").textContent = valor;
 }
 //---------------------------------- cargar imagenes ---------------------------------------
-document.addEventListener("DOMContentLoaded", function () {
-  var container = document.querySelector(".image-container");
-  var image = container.querySelector(".image");
-  var loaderContainer = container.querySelector(".loader-container");
+document.addEventListener("DOMContentLoaded", function() {
+  var images = document.querySelectorAll('.image');
+  var loaderContainers = document.querySelectorAll('.loader-container');
+  var imageContainer = document.querySelector('.image-container');
 
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", image.src, true);
-
-  xhr.onprogress = function (event) {
+  function imageProgress(index, event) {
+    // Verifica el progreso de carga
     if (event.lengthComputable) {
-      var percentComplete = (event.loaded / event.total) * 100;
+      var percentage = (event.loaded / event.total) * 100;
+      if (percentage >= 75) {
+        loaderContainers[index].style.display = 'none';
 
-      // Puedes ajustar el porcentaje para mostrar el contenedor de carga
-      var thresholdPercentage = 70;
-
-      if (percentComplete >= thresholdPercentage) {
-        // Muestra el contenedor de carga cuando se alcanza el umbral
-        loaderContainer.style.display = "block";
+        // Verifica si todas las imágenes se han cargado al menos al 50%
+        var allImagesLoaded = Array.from(loaderContainers).every(function(loaderContainer) {
+          return loaderContainer.style.display === 'none';
+        });
+        
+        if (allImagesLoaded) {
+          imageContainer.style.display = 'block';
+        }
       }
     }
-  };
+  }
 
-  xhr.onload = function () {
-    // Oculta el contenedor de carga cuando la imagen ha cargado completamente
-    loaderContainer.style.display = "none";
-  };
+  // Agrega un evento de progreso para cada imagen
+  images.forEach(function(image, index) {
+    image.addEventListener('progress', function(event) {
+      imageProgress(index, event);
+    });
 
-  xhr.send();
+    // Agrega un evento de carga para manejar el caso en que no se dispare el evento de progreso
+    image.addEventListener('load', function() {
+      imageProgress(index, { loaded: 100, total: 100 });
+    });
+  });
+
+  setTimeout(function() {
+    // Muestra las imágenes después de un tiempo aunque no estén completamente cargadas
+    imageContainer.style.display = 'block';
+    loaderContainers.forEach(function(loaderContainer) {
+      loaderContainer.style.display = 'none';
+    });
+  }, 3000); // Ajusta el tiempo según sea necesario
 });
 //-------------------------------------------------------------------------------------------
 
