@@ -44,8 +44,8 @@ function cerrarModal(modal) {
 }
 //----------------------------------- datos Documento txt -----------------------------------
 function LecturaDeVisitas() {
-  //const githubTokenCode = "VW5jS0NMUUZWc3JxNHMyOHZ5NmpYQzhaRFRLdzBaNDlSS1A3";
-  const githubTokenCode = "";
+  const githubTokenCode = "VW5jS0NMUUZWc3JxNHMyOHZ5NmpYQzhaRFRLdzBaNDlSS1A3";
+  //const githubTokenCode = "";
   var token = "ghp_" + atob(githubTokenCode);
   const githubToken = token;
   const repoOwner = "danielcontreras205";
@@ -190,17 +190,25 @@ document.addEventListener("DOMContentLoaded", function() {
   var loaderContainers = document.querySelectorAll('.loader-container');
   var imageContainer = document.querySelector('.image-container');
 
-  var loadedImages = 0;
-  function imageLoaded() {
-    loadedImages++;
-    if (loadedImages === images.length) {
-      // Todas las imágenes se han cargado, oculta el loader
+  function imageLoaded(index) {
+    loaderContainers[index].style.display = 'none';
+
+    // Verifica si todas las imágenes se han cargado
+    var allImagesLoaded = Array.from(loaderContainers).every(function(loaderContainer) {
+      return loaderContainer.style.display === 'none';
+    });
+
+    if (allImagesLoaded) {
       imageContainer.style.display = 'block';
-      loaderContainers.forEach(function(loaderContainer) {
-        loaderContainer.style.display = 'none';
-      });
     }
   }
+
+  // Agrega un evento de carga para cada imagen
+  images.forEach(function(image, index) {
+    image.addEventListener('load', function() {
+      imageLoaded(index);
+    });
+  });
 
   setTimeout(function() {
     // Muestra las imágenes después de un tiempo aunque no estén completamente cargadas
@@ -208,7 +216,7 @@ document.addEventListener("DOMContentLoaded", function() {
     loaderContainers.forEach(function(loaderContainer) {
       loaderContainer.style.display = 'none';
     });
-  }, 1000); // Ajusta el tiempo según sea necesario
+  }, 5000); // Ajusta el tiempo según sea necesario
 });
 //-------------------------------------------------------------------------------------------
 var nombreHost = window.location.hostname;
