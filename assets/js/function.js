@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", function() {
         var allImagesLoaded = Array.from(loaderContainers).every(function(loaderContainer) {
           return loaderContainer.style.display === 'none';
         });
-
+        
         if (allImagesLoaded) {
           imageContainer.style.display = 'block';
         }
@@ -227,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function() {
     loaderContainers.forEach(function(loaderContainer) {
       loaderContainer.style.display = 'none';
     });
-  }, 2000); // Ajusta el tiempo según sea necesario
+  }, 3000); // Ajusta el tiempo según sea necesario
 });
 //-------------------------------------------------------------------------------------------
 
