@@ -44,7 +44,7 @@ function cerrarModal(modal) {
 }
 //----------------------------------- datos Documento txt -----------------------------------
 function LecturaDeVisitas() {
-  //const githubTokenCode = "VW5jS0NMUUZWc3JxNHMyOHZ5NmpYQzhaRFRLdzBaNDlSS1A3";
+  //const githubTokenCode = "iIhlVzbM3LCVheUCMZX8N3CoDFsTaH1r6N7I";
   const githubTokenCode = "";
   var token = "ghp_" + atob(githubTokenCode);
   const githubToken = token;
